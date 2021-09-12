@@ -6,9 +6,8 @@ ENV GHOST_DIR /opt/ghost
 ENV NODE_ENV production
 
 RUN npm install -g "ghost-cli@${GHOST_CLI_VERSION}" && \
-    npm cache clean --force
-
-RUN mkdir -p ${GHOST_DIR} && chown -Rf node:node ${GHOST_DIR}
+    npm cache clean --force && \
+    mkdir -p ${GHOST_DIR} && chown -Rf node:node ${GHOST_DIR}
 
 USER node
 
